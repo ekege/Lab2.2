@@ -104,7 +104,7 @@ public class TruckBed<T> {
      * @param amount the increase of the angle in degrees
      */
     public void decreaseAngle(int amount) {
-        setAngle(amount - angle);
+        setAngle(angle - amount);
     }
 
     /**

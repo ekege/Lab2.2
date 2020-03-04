@@ -32,8 +32,8 @@ public class CarView extends JFrame implements Observer {
 	 */
 	private String versionNumber = "1.2";
 	private static final long serialVersionUID = 1L;
-	private static final int FRAME_WIDHT = 800;
-	private static final int FRAME_HEIGHT = 800;
+	private int FRAME_HEIGHT;
+	private int FRAME_WIDHT;
 
 	PanelCars panelCars;
 
@@ -58,13 +58,16 @@ public class CarView extends JFrame implements Observer {
 	JButton removeCarButton = new JButton("<html><center>Remove<br/>Car</center></html>");
 
 	// Constructor
-	public CarView(CarModel cars){
+	public CarView(CarModel cars, int FRAME_HEIGHT, int FRAME_WIDHT){
+		this.FRAME_HEIGHT = FRAME_HEIGHT;
+		this.FRAME_WIDHT = FRAME_WIDHT;
 		panelCars = new PanelCars(cars.cars, FRAME_WIDHT, FRAME_HEIGHT-240);
 		initComponents(panelCars);
 	}
 	
 	
 	private void initComponents(PanelCars panelCars) {
+		
 		
 		setTitle("CarSim " + versionNumber);
 		setSize(new Dimension(FRAME_WIDHT, FRAME_HEIGHT));

@@ -1,12 +1,10 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import vehicles.CarFactory;
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -18,7 +16,6 @@ public class CarController {
 	private CarModel model;
 	private CarView view;
 	int gasAmount = 0;
-	Random rand = new Random();
 
 
 	public CarController(CarModel model, CarView view) {
@@ -88,27 +85,13 @@ public class CarController {
 		view.addCarButton.addActionListener(new ActionListener () {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int n = rand.nextInt(3);
-				if (model.cars.size() < 10)
-					switch(n) {
-					case 0:
-						model.addCar(CarFactory.createVolvo240());
-						break;
-					case 1:
-						model.addCar(CarFactory.createSaab95());
-						break;
-					case 2:
-						model.addCar(CarFactory.createScania());
-						break;
-					}
+				model.addRandomCar();
 			}
 		});
 		view.removeCarButton.addActionListener(new ActionListener () {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (model.cars.size() > 0)
-					model.cars.remove(model.cars.size()-1);
-				model.notifyObservers();
+				model.removeCar();
 			}
 
 		});

@@ -13,7 +13,7 @@ public class Scania extends Vehicle {
     private TruckBed<?> bed;
 
     public Scania(){
-        super(2, Color.blue, 100, "Scania");
+        super(2, Color.blue, 110, "Scania");
         this.bed = new TruckBed<Object>(10, 70);
     }
 
