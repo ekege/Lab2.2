@@ -42,7 +42,6 @@ public class PanelCars extends JPanel implements DisplayCars {
 
 	@Override
 	public void display(ArrayList<Vehicle> cars) {
-		this.cars = cars;
 		this.repaint();		
 	}
 
